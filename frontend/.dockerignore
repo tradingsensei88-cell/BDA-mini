@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+.git/
+.env
+.env.*
+*.log
+npm-debug.log*
+.DS_Store
+Dockerfile
+.dockerignore
+.turbo/
+*.tsbuildinfo

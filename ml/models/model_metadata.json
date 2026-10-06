@@ -1,0 +1,243 @@
+{
+  "model_name": "Gradient Boosted Trees Classifier",
+  "model_type": "GBTClassifier (OneVsRest)",
+  "artifact_name": "cybershield-attack-classifier",
+  "version": "1.0.0",
+  "training_date": "2026-10-06T16:32:12.889816+00:00",
+  "dataset": "NSL-KDD",
+  "training_samples": 30143,
+  "test_samples": 22544,
+  "features": [
+    "duration",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate",
+    "protocol_type",
+    "service",
+    "flag"
+  ],
+  "num_features": 40,
+  "classes": [
+    "Normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "label_index": [
+    "Normal",
+    "DoS",
+    "Probe",
+    "R2L",
+    "U2R"
+  ],
+  "metrics": {
+    "accuracy": 0.791164,
+    "precision": 0.831137,
+    "recall": 0.791164,
+    "f1_score": 0.758705
+  },
+  "per_class_metrics": {
+    "Normal": {
+      "precision": 0.703286,
+      "recall": 0.969725,
+      "f1_score": 0.815289,
+      "support": 9711
+    },
+    "DoS": {
+      "precision": 0.959909,
+      "recall": 0.847546,
+      "f1_score": 0.900235,
+      "support": 7458
+    },
+    "Probe": {
+      "precision": 0.792565,
+      "recall": 0.713342,
+      "f1_score": 0.75087,
+      "support": 2421
+    },
+    "R2L": {
+      "precision": 0.965147,
+      "recall": 0.124697,
+      "f1_score": 0.220859,
+      "support": 2887
+    },
+    "U2R": {
+      "precision": 0.647059,
+      "recall": 0.164179,
+      "f1_score": 0.261905,
+      "support": 67
+    }
+  },
+  "confusion_matrix": [
+    [
+      9417,
+      69,
+      218,
+      5,
+      2
+    ],
+    [
+      925,
+      6321,
+      211,
+      0,
+      1
+    ],
+    [
+      497,
+      194,
+      1727,
+      3,
+      0
+    ],
+    [
+      2501,
+      1,
+      22,
+      360,
+      3
+    ],
+    [
+      50,
+      0,
+      1,
+      5,
+      11
+    ]
+  ],
+  "feature_importance": {},
+  "all_models_comparison": [
+    {
+      "model_name": "Random Forest Classifier",
+      "model_type": "RandomForestClassifier",
+      "accuracy": 0.739975,
+      "precision": 0.811003,
+      "recall": 0.739975,
+      "f1_score": 0.697115,
+      "macro_f1": 0.477788,
+      "training_seconds": 71.31,
+      "hyperparameters": {
+        "seed": 42,
+        "maxDepth": 15,
+        "impurity": "gini",
+        "numTrees": 100
+      }
+    },
+    {
+      "model_name": "Decision Tree Classifier",
+      "model_type": "DecisionTreeClassifier",
+      "accuracy": 0.76038,
+      "precision": 0.813728,
+      "recall": 0.76038,
+      "f1_score": 0.729025,
+      "macro_f1": 0.587701,
+      "training_seconds": 4.62,
+      "hyperparameters": {
+        "seed": 42,
+        "maxDepth": 15,
+        "impurity": "gini"
+      }
+    },
+    {
+      "model_name": "Gradient Boosted Trees Classifier",
+      "model_type": "GBTClassifier (OneVsRest)",
+      "accuracy": 0.791164,
+      "precision": 0.831137,
+      "recall": 0.791164,
+      "f1_score": 0.758705,
+      "macro_f1": 0.589832,
+      "training_seconds": 433.28,
+      "hyperparameters": {
+        "maxIter": 50,
+        "maxDepth": 10,
+        "seed": 42,
+        "multiclassStrategy": "OneVsRest"
+      }
+    },
+    {
+      "model_name": "Logistic Regression (multinomial)",
+      "model_type": "LogisticRegression",
+      "accuracy": 0.763263,
+      "precision": 0.743658,
+      "recall": 0.763263,
+      "f1_score": 0.719594,
+      "macro_f1": 0.564006,
+      "training_seconds": 14.36,
+      "hyperparameters": {
+        "elasticNetParam": 0.0,
+        "maxIter": 100,
+        "regParam": 0.0,
+        "family": "multinomial"
+      }
+    }
+  ],
+  "hyperparameters": {
+    "maxIter": 50,
+    "maxDepth": 10,
+    "seed": 42,
+    "multiclassStrategy": "OneVsRest"
+  },
+  "spark_evaluator_cross_check": {
+    "accuracy": 0.791164,
+    "weightedPrecision": 0.831137,
+    "weightedRecall": 0.791164,
+    "f1": 0.758705
+  },
+  "training_class_distribution": {
+    "R2L": 244,
+    "Probe": 2816,
+    "DoS": 10994,
+    "U2R": 15,
+    "Normal": 16074
+  },
+  "baseline_attack_percentage": 46.6742,
+  "spark_version": "3.5.9",
+  "training_seconds_total": 718.3,
+  "best_model_artifact_saved": false,
+  "notes": [
+    "All metrics are computed on the held-out NSL-KDD test split (KDDTest+); no synthetic or interpolated values.",
+    "Preprocessing (encoders/scaler) is fitted on the training split only.",
+    "label_index maps the Spark 'prediction' column back to attack categories.",
+    "baseline_attack_percentage is the attack share of the training split, used by the streaming job as the attack-trend baseline."
+  ],
+  "outputs": {
+    "model_metadata": "C:\\Users\\HP\\Downloads\\BDA mini\\cybershield-ai\\ml\\models\\model_metadata.json",
+    "feature_importance": "C:\\Users\\HP\\Downloads\\BDA mini\\cybershield-ai\\ml\\models\\feature_importance.json",
+    "confusion_matrix": "C:\\Users\\HP\\Downloads\\BDA mini\\cybershield-ai\\ml\\models\\confusion_matrix.json",
+    "sklearn_model": "C:\\Users\\HP\\Downloads\\BDA mini\\cybershield-ai\\ml\\models\\sklearn_model.pkl"
+  }
+}

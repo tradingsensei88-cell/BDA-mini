@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  CyberShield AI - Hadoop hdfs-site.xml
+  Single-DataNode development cluster: replication factor 1.
+  Mirrored by the HDFS-SITE.XML_* environment variables in docker-compose.yml.
+-->
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+        <description>Single DataNode deployment - no block replication.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///tmp/hadoop-root/dfs/name</value>
+        <description>NameNode metadata directory (backed by the hdfs_namenode volume).</description>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///tmp/hadoop-root/dfs/data</value>
+        <description>DataNode block storage directory (backed by the hdfs_datanode volume).</description>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address</name>
+        <value>namenode:8020</value>
+        <description>HDFS RPC endpoint advertised to clients.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address</name>
+        <value>0.0.0.0:9870</value>
+        <description>NameNode Web UI bind address.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>0.0.0.0:9868</value>
+        <description>Secondary NameNode HTTP endpoint (checkpointing).</description>
+    </property>
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>true</value>
+        <description>Keep HDFS permission checks enabled.</description>
+    </property>
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+        <description>Enable WebHDFS REST API (used by the backend for on-demand reads).</description>
+    </property>
+    <property>
+        <name>dfs.blocksize</name>
+        <value>134217728</value>
+        <description>128 MiB block size.</description>
+    </property>
+    <property>
+        <name>dfs.datanode.du.reserved</name>
+        <value>1073741824</value>
+        <description>Reserve 1 GiB of local disk for the host OS.</description>
+    </property>
+</configuration>

@@ -1,0 +1,31 @@
+# CyberShield AI - Backend API dependencies
+# Python 3.11+
+
+# Web framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.17
+websockets>=13.0
+
+# Validation / settings
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+python-dotenv>=1.0.1
+
+# Database
+sqlalchemy[asyncio]>=2.0.36
+asyncpg>=0.30.0
+
+# Cache
+redis>=5.2.0
+
+# Streaming
+aiokafka>=0.12.0
+
+# Observability
+structlog>=24.4.0
+
+# HTTP / analytics
+httpx>=0.28.0
+pandas>=2.2.0
+numpy>=2.1.0

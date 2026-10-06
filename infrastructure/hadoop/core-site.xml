@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  CyberShield AI - Hadoop core-site.xml
+  Reference configuration mirrored by the docker-compose environment variables
+  (CORE-SITE.XML_* pattern consumed by the apache/hadoop image entrypoint).
+-->
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://namenode:8020</value>
+        <description>Default filesystem - the platform HDFS NameNode.</description>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/tmp/hadoop-root</value>
+        <description>Base directory for temporary Hadoop data.</description>
+    </property>
+    <property>
+        <name>io.file.buffer.size</name>
+        <value>131072</value>
+        <description>128 KiB buffers for streaming reads/writes.</description>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hadoop.hosts</name>
+        <value>*</value>
+        <description>Allow the hadoop superuser to proxy from any host (local stack convenience).</description>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hadoop.groups</name>
+        <value>*</value>
+        <description>Allow the hadoop superuser to proxy any group (local stack convenience).</description>
+    </property>
+</configuration>

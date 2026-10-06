@@ -1,0 +1,20 @@
+# CyberShield AI - Machine learning pipeline dependencies
+# Python 3.10+
+
+# Distributed processing
+pyspark>=3.5.1,<4.0.0
+
+# Data wrangling
+pandas>=2.2.0
+numpy>=1.26.0
+pyarrow>=16.0.0
+
+# Classical ML (Isolation Forest baselines + attack classifiers)
+scikit-learn>=1.5.0
+
+# Event schemas + configuration (shared with the streaming layer)
+pydantic>=2.7.0
+python-dotenv>=1.0.1
+
+# Structured logging (shared with the streaming layer)
+structlog>=24.1.0
